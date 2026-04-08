@@ -1,0 +1,26 @@
+[type = stock]
+AND [country = US]
+
+//// --- SCTR STRENGTH ---
+AND [SCTR > 90]
+
+//// --- LIQUIDITY (avoid junk) ---
+AND [Close > 10]
+AND [SMA(20,Volume) > 500000]
+
+//// --- PRIMARY TREND (institutional trend) ---
+AND [Close > SMA(50,Close)]
+AND [Close > SMA(200,Close)]
+
+//// --- MOMENTUM (trend confirmation) ---
+AND [SMA(50,Close) > SMA(200,Close)]
+AND [PctChange(20,Close) > 0]
+
+//// --- RELATIVE STRENGTH VS MARKET ---
+AND [PctRelative(20,$SPX) > 0]
+
+//// --- OPTIONAL: ACCELERATION ---
+AND [SCTR > yesterday's SCTR]
+
+//// --- SORT RESULTS ---
+RANK BY SCTR
