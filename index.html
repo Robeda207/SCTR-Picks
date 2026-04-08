@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SCTR Pro Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>SCTR Pro Dashboard</h1>
+
+<div class="controls">
+  <input id="minSctr" type="number" value="90" placeholder="Min SCTR">
+  <input id="minPrice" type="number" value="10" placeholder="Min Price">
+  <input id="minVolume" type="number" value="500000" placeholder="Min Volume">
+  <button onclick="applyFilters()">Apply Filters</button>
+</div>
+
+<div class="import-box">
+  <textarea id="csvInput" placeholder="ticker,name,type,sctr,price,volume&#10;NVDA,NVIDIA,stock,96,900,12000000"></textarea>
+  <button onclick="importCSV()">Import CSV</button>
+</div>
+
+<div class="stats">
+  <div>Count: <span id="count">0</span></div>
+  <div>Avg SCTR: <span id="avg">0</span></div>
+  <div>Top: <span id="top">-</span></div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th onclick="sortBy('ticker')">Ticker</th>
+      <th onclick="sortBy('sctr')">SCTR</th>
+      <th onclick="sortBy('price')">Price</th>
+      <th onclick="sortBy('volume')">Volume</th>
+      <th onclick="sortBy('type')">Type</th>
+    </tr>
+  </thead>
+  <tbody id="table"></tbody>
+</table>
+
+<script src="app.js"></script>
+</body>
+</html>
