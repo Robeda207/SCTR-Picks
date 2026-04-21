@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCTR Top 10</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="card">
+        <div class="header-row">
+          <div>
+            <h1>SCTR Top 10 Stocks</h1>
+            <p>
+              Scraped from the public StockCharts SCTR page.
+            </p>
+          </div>
+          <button id="refreshBtn">Refresh</button>
+        </div>
+
+        <div class="meta" id="meta">Loading…</div>
+        <div class="error hidden" id="errorBox"></div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Ticker</th>
+                <th>Company</th>
+                <th>SCTR</th>
+                <th>Sector</th>
+                <th>Industry</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <tr>
+                <td colspan="6" class="loading-cell">Loading current rankings…</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
